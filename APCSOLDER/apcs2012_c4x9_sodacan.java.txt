@@ -1,0 +1,33 @@
+//SodaCan.java		MrG		2012.1016
+public class SodaCan
+{
+	private double d;
+	private double h;
+	private final double pi=3.14159;
+
+	public SodaCan(double d, double h)
+	{
+		this.d=d;
+		this.h=h;
+	}
+
+	public double getD()
+	{
+		return d;
+	}
+
+	public double getH()
+	{
+		return h;
+	}
+
+	public double getV()
+	{
+		return pi*Math.pow(d/2,2)*h;
+	}
+
+	public double getS()
+	{
+		return 2*pi*Math.pow(d/2,2)+2*pi*d/2*h;
+	}
+}

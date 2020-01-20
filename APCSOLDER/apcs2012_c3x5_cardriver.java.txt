@@ -1,0 +1,22 @@
+/*
+CarDriver.java		MrG		2012.1002
+purpose:	simulating gas consumption in my car
+required files:	CarDriver.java			main class
+		Car.java			derived class
+translator:	javac CarDriver.java
+interpreter:	java CarDriver
+*/
+
+//main class
+public class CarDriver
+{
+	public static void main(String[] args)
+	{
+		Car bmw = new Car(50);
+		System.out.println("gas left = " + bmw.getGas() + " gallons");
+		bmw.addGas(10);
+		System.out.println("gas left = " + bmw.getGas() + " gallons");
+		bmw.drive(20);
+		System.out.println("gas left = " + bmw.getGas() + " gallons");
+	}
+}

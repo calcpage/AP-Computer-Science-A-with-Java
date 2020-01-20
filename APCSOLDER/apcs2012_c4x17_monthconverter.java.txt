@@ -1,0 +1,21 @@
+/*
+MonthConverter.java 	MrG	2012.1019
+purpose:	translates numbers to month names
+required files:	MonthConverter.java		main class
+		Month.java			derived class
+translator:	javac MonthConverter.java
+interpreter:	java MonthConverter month
+*/
+
+//main class
+public class MonthConverter
+{
+	public static void main(String[] args)
+	{
+		int month = Integer.parseInt(args[0]);
+
+		Month harinee = new Month(month);
+
+		System.out.println("month # " + month + " is " + harinee.getName());
+	}
+}

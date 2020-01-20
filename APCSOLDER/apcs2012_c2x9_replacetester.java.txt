@@ -1,0 +1,13 @@
+//ReplaceTester.java	MrG	2012.0924
+public class ReplaceTester
+{
+	public static void main(String[] args)
+	{
+		String river = "mississppi";
+		System.out.println(river);
+		String newRiver = river.replace("i","!");
+		System.out.println(newRiver);
+		String newerRiver = newRiver.replace("s","$");
+		System.out.println(newerRiver);
+	}
+}

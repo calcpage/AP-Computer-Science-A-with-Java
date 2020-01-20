@@ -1,0 +1,23 @@
+/*
+Hello4.java	MrG	2013.0927
+purpose:	experimenting with applets
+required files:	Hello4.java		main class
+		Hello4.html		website
+translator:	javac Hello4.java
+interpreter:	appletviewer Hello4.html
+*/
+
+//imported classes
+import javax.swing.JApplet;
+import java.awt.Graphics;
+import java.awt.Graphics2D;
+
+//applet class
+public class Hello4 extends JApplet
+{
+	public void paint(Graphics g)
+	{
+		Graphics2D g2 = (Graphics2D) g;
+		g2.drawString("Hello, Dave!!!", 50, 100);
+	}
+}

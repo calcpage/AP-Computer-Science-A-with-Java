@@ -1,0 +1,25 @@
+/*
+BugMover.java		MrG	2012.1009
+purpose:		move a Bug object along the x-axis
+required files:		BugMover.java			main class
+			Bug.java			derived class
+translator:		javac BugMover.java
+interpreter:		java BugMover
+*/
+
+//main class
+public class BugMover
+{
+	public static void main(String[] args)
+	{
+		Bug oscar = new Bug(-20);
+		System.out.println("loc = " + oscar.getPosition());
+		oscar.move();
+		System.out.println("loc = " + oscar.getPosition());
+		oscar.move();
+		System.out.println("loc = " + oscar.getPosition());
+		oscar.turn();
+		oscar.move();
+		System.out.println("loc = " + oscar.getPosition());
+	}
+}

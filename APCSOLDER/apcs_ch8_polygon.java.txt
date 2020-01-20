@@ -1,0 +1,33 @@
+//Polygon.java		MrG		2013.0208
+import java.util.ArrayList;
+public class Polygon
+{
+	private ArrayList<Point> vertices;
+
+	public Polygon()
+	{
+		vertices = new ArrayList<Point>();
+	}
+
+	public void add(Point p)
+	{
+		vertices.add(p);
+	}
+
+	public String toString()
+	{
+		return "" + vertices;
+	}
+
+	public double getArea()
+	{
+		int stop=vertices.size();
+		double sum=0;
+		for(int i=0; i<stop;i++)
+		{
+			sum+=vertices.get(i).getX()*vertices.get((i+1)%stop).getY();
+			sum-=vertices.get((i+1)%stop).getX()*vertices.get(i).getY();
+		}
+		return sum/2;
+	}
+}

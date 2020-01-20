@@ -1,0 +1,28 @@
+/*
+PolygonTester.java	MrG	2012.0208
+purpose: implement the ShoeLace Algorithm using ArrayLists!
+required files: 	PolygonTester.java		main class
+			Polygon.java			derived class
+			Point.java			utility class
+translator phase:	javac PolygonTester.java
+interpreter phase:	java PolygonTester
+*/
+
+public class PolygonTester
+{
+	public static void main(String[] args)
+	{
+		Point p1 = new Point(0,0);
+		Point p2 = new Point(4,0);
+		Point p3 = new Point(2,2);
+
+		Polygon blair = new Polygon();
+
+		blair.add(p1);
+		blair.add(p2);
+		blair.add(p3);
+
+		System.out.println("polygon = " + blair);
+		System.out.println("area = " + blair.getArea());
+	}
+}

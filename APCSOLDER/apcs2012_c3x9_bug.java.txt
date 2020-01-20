@@ -1,0 +1,27 @@
+//Bug.java		MrG		2012.1009
+public class Bug
+{
+	private int dir;
+	private int pos;
+
+	public Bug(int pos)
+	{
+		this.pos=pos;
+		dir=1;
+	}
+
+	public int getPosition()
+	{
+		return pos;
+	}
+
+	public void move()
+	{
+		pos+=dir;
+	}
+
+	public void turn()
+	{
+		dir*=-1;
+	}
+}

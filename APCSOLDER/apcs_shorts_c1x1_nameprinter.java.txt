@@ -1,0 +1,26 @@
+/*
+NamePrinter.java	MrG	2013.1001
+purpose:		practice with println boxing my name
+required files:		NamePrinter.java		main class
+translator phase:	javac NamePrinter.java
+interpreter phase:	java NamePrinter
+*/
+
+//main method
+public class NamePrinter
+{
+	public static void main(String[] args)
+	{
+		System.out.println("+-----+");
+		System.out.println("| MrG |");
+		System.out.println("+-----+");
+	}
+}
+
+/* Now you do FacePrinter.java
+  /////
+ | o o |
+(|  ^  |)
+ | [_] |
+  -----
+*/

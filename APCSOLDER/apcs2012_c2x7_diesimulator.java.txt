@@ -1,0 +1,13 @@
+import java.util.Random;
+public class DieSimulator
+{
+	public static void main(String[] args)
+	{	
+		Random ross = new Random();
+		System.out.println(1+ross.nextInt(6));
+		System.out.println(1+ross.nextInt(6));
+		System.out.println(1+ross.nextInt(6));
+		System.out.println(1+ross.nextInt(6));
+		System.out.println(1+ross.nextInt(6));
+	}
+}

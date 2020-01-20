@@ -1,0 +1,29 @@
+import java.util.Scanner;
+public class ConvertTester
+{
+	public static void main(String[] args)
+	{
+		Scanner in = new Scanner(System.in);
+		System.out.println("How many euros to a dollar?");
+		double rate = in.nextDouble();
+
+		Convert Dan = new Convert(rate);
+
+		boolean done = false;
+		while(!done)
+		{
+			System.out.println("Enter US$ amount (or Q to stop):");
+			String dollars = in.next();
+
+			if(dollars.equals("Q"))
+			{
+				done = true;
+			}
+			else
+			{
+				double amount = Double.parseDouble(dollars);
+				System.out.println("euros = " + Dan.convert(amount));
+			}
+		}
+	}
+}

@@ -1,0 +1,11 @@
+import javax.swing.JOptionPane;
+
+public class HelloWorld3
+{
+	public static void main(String[] args)
+	{
+		String myName = JOptionPane.showInputDialog("name? ");
+		System.out.println("Hello, " + myName + ", how about a nice game of chess?");
+		System.exit(0);
+	}
+}

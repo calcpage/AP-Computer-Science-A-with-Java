@@ -1,0 +1,20 @@
+/*
+DialogViewer.java	MrG	2013.1003
+purpose:		practice with JOptionPane
+required files:		DialogViewer.java		main class
+translator phase:	javac DialogViewer.java
+interpreter phase:	java DialogViewer
+*/
+
+//imported class
+import javax.swing.JOptionPane;
+
+//main method
+public class DialogViewer
+{
+	public static void main(String[] args)
+	{
+		JOptionPane.showMessageDialog(null, "Hello, World!");
+		System.exit(0);
+	}
+}

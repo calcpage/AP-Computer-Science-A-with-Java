@@ -1,0 +1,11 @@
+import java.awt.Color;
+public class BrighterDemo
+{
+	public static void main(String[] args)
+	{
+		Color bobRoss = new Color(50,100,150);
+		System.out.println(bobRoss);
+		Color fooBar = bobRoss.brighter();
+		System.out.println(fooBar);
+	}
+}

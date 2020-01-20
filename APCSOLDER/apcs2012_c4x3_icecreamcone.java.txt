@@ -1,0 +1,23 @@
+//IceCreamCone.java	MrG	2012.1012
+public class IceCreamCone
+{
+	private double r;
+	private double h;
+	private final double PI = 3.14159;
+
+	public IceCreamCone(double r, double h)
+	{
+		this.r=r;
+		this.h=h;
+	}
+		
+	public double getVol()
+	{
+		return 1.0/3*PI*Math.pow(r,2)*h;
+	}
+
+	public double getSurfaceArea()
+	{
+		return PI*r*Math.sqrt(Math.pow(h,2)+Math.pow(r,2));
+	}
+}

@@ -1,0 +1,37 @@
+/*
+TicTacToePrinter.java	MrG	2013.1002
+purpose:		use println to make a tictactoe board
+required files: 	TicTacToePrinter.java		main class
+translator phase:	javac TicTacToePrinter.java
+interpreter phase:	java TicTacToePrinter
+*/
+
+
+//main method
+public class TicTacToePrinter
+{
+	public static void main(String[] args)
+	{
+		System.out.println("+---+---+---+");
+		System.out.println("|   |   |   |");
+                System.out.println("+---+---+---+");
+                System.out.println("|   |   |   |");
+                System.out.println("+---+---+---+");
+                System.out.println("|   |   |   |");
+                System.out.println("+---+---+---+");
+	}
+}
+
+/*C1X4 StaircasePrinter:
+
++---+---+---+---+
+|   |   |   |   |
++---+---+---+---+
+|   |   |   |   |
++---+---+---+---+
+|   |   |   |   |
++---+---+---+---+
+|   |   |   |   |
++---+---+---+---+
+
+*/

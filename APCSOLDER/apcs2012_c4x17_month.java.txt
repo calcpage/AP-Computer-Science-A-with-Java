@@ -1,0 +1,18 @@
+//Month.java	MrG	2012.1019
+public class Month
+{
+	private int month;
+	private final int MON_LEN = 3;
+	private final String MONTHS="JanFebMarAprMayJunJulAugSepOctNovDec";
+
+	public Month(int month)
+	{
+		this.month = month;
+	}
+
+	public String getName()
+	{
+		int temp = month*MON_LEN-3;
+		return MONTHS.substring(temp,temp+MON_LEN);
+	}
+}

@@ -1,0 +1,72 @@
+//Roman.java	MrG	2013.0125
+public class Roman extends Object implements Comparable
+{	
+	private int num;
+
+	public Roman(int num)
+	{
+		this.num=num;
+	}
+	
+	public String toString()
+	{
+		return "" + intToRom(num);
+	}
+
+	private String intToRom(int num)
+	{
+		int ones = num % 10;
+		int tens = num/10;
+
+		String temp = "";
+
+		if(ones==1) temp += "i";
+		if(ones==2) temp += "ii";
+		if(ones==3) temp += "iii";
+		if(ones==4) temp += "iv";
+		if(ones==5) temp += "v";
+		if(ones==6) temp += "vi";
+		if(ones==7) temp += "vii";
+		if(ones==8) temp += "viii";
+		if(ones==9) temp += "ix";
+
+		if(tens==1) temp = "x " + temp;
+		if(tens==2) temp = "xx " + temp;
+		if(tens==3) temp = "xxx " + temp;
+		if(tens==4) temp = "xl " + temp;
+		if(tens==5) temp = "l " + temp;
+		if(tens==6) temp = "lx " + temp;
+		if(tens==7) temp = "lxx " + temp;
+		if(tens==8) temp = "lxxx " + temp;
+		if(tens==9) temp = "xc " + temp;
+
+		return temp;
+	}
+
+	public int getNum()
+	{
+		return num;
+	}
+
+	public int compareTo(Object other)
+	{
+		Roman temp = (Roman)other;
+		return this.getNum()-temp.getNum();
+	}
+
+	public boolean equals(Object other)
+	{
+		Roman temp = (Roman)other;
+		return this.compareTo(temp)==0;
+	}
+
+	public Roman add(Roman other)
+	{
+		return new Roman(this.num+other.getNum());
+	}
+
+	public Roman sub(Roman other)
+	{
+		return new Roman(this.num-other.getNum());
+	}
+}

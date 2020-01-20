@@ -1,0 +1,36 @@
+//Dart.java	MrG	2012.0131
+import java.util.Random;
+public class Dart
+{
+	private int hits;
+	private int tries;
+	private Random gen;
+
+	public Dart()
+	{
+		hits = 0;
+		tries = 0;
+		gen = new Random();
+	}
+
+	public void toss()
+	{
+		double x = 2*gen.nextDouble()-1;
+		double y = 2*gen.nextDouble()-1;
+		if (x*x+y*y<1)
+		{
+			hits = hits + 1;
+		}
+		tries = tries + 1;
+	}
+
+	public int getHits()
+	{
+		return hits;
+	}
+
+	public int getThrows()
+	{
+		return tries;
+	}
+}

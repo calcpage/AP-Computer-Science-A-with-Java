@@ -1,0 +1,29 @@
+/*
+FibTester.java		MrG	2012.0109
+purpose: 	estimate the limit of fib(n)/fib(n-1) as n approaches inf
+required:	FibTester.java				main class
+		Fib.java				derived class
+translator:	javac FibTester.java
+interpreter:	java FibTester first second n
+*/
+public class FibTester
+{
+	public static void main(String[] args)
+	{
+		int first = Integer.parseInt(args[0]);
+		int second = Integer.parseInt(args[1]);
+		int n = Integer.parseInt(args[2]);
+
+		Fib ross = new Fib(first,second);
+
+		System.out.println("n" + "\tfib(n)" + "\tfib(n)/fib(n-1)");
+		System.out.println("1\t" + first + "\tundef");
+		System.out.println("2\t" + second + "\t" + (double)second/first);
+		for(int i = 3; i<=n; i++)
+		{
+			ross.nextFib();
+			System.out.print(i + "\t" + ross.getFib());
+			System.out.println("\t" + ross.getRatio());
+		}
+	}
+}

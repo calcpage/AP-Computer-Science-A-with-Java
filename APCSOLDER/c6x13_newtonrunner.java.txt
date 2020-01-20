@@ -1,0 +1,25 @@
+/*
+NewtonRunner.java		MrG		2012.0119
+purpose:	solving equations of the form x^n-a=0
+required files:	NewtonRunner.java		main class
+		Newton.java			derived class
+translator:	javac NewtonRunner.java
+interpreter:	java NewtonRunner a n eps
+*/
+public class NewtonRunner
+{
+	public static void main(String[] args)
+	{
+		double a = Double.parseDouble(args[0]);
+		int n = Integer.parseInt(args[1]);
+		double eps = Double.parseDouble(args[2]);
+
+		Newton cody = new Newton(a,n,eps);
+
+		do
+		{
+			System.out.println(cody.nextGuess());
+		}
+		while(cody.hasMoreGuesses());
+	}
+}

@@ -1,0 +1,22 @@
+/*
+BankAccountTester.java		MrG	2012.0925
+purpose:	test a BankAccount class maintaining a balance
+required files:	BankAccountTester.java			main class
+		BankAccount.java			derived class
+translator:	javac BankAccountTester.java
+interpreter:	java BankAccountTester
+*/
+
+//main routine
+public class BankAccountTester
+{
+	public static void main(String[] args)
+	{
+		BankAccount bob = new BankAccount();
+		System.out.println("balance = $" + bob.getBalance());
+		bob.deposit(1000000);
+		System.out.println("balance = $" + bob.getBalance());
+		bob.withdraw(5000.95);
+		System.out.println("balance = $" + bob.getBalance());
+	}
+}

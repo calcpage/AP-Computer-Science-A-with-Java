@@ -1,0 +1,26 @@
+/*
+Hello2.java	MrG	2013.0927
+purpose: 	practice with basic IO
+required:	Hello2.java		main class
+translator:	javac Hello2.java
+interpreter:	java Hello2 NAME
+*/
+
+public class Hello2
+{
+	public static void main(String[] args)
+	{
+		//command line input
+		System.out.println("Hello, " + args[0] + ", how about a nice game of chess?");
+	}
+}
+
+//ssh
+//ftp
+//http
+//html
+//mkdir
+//cd
+//ls
+//passwd
+//which

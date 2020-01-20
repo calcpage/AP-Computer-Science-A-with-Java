@@ -1,0 +1,14 @@
+public class Convert
+{
+	private double rate;
+
+	public Convert(double rate)
+	{
+		this.rate = rate;
+	}
+
+	public double convert(double amount)
+	{
+		return Math.floor(amount*rate*100+.5)/100;
+	}
+}

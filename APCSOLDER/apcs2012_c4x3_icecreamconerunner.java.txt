@@ -1,0 +1,19 @@
+/*
+IceCreamConeRunner.java		MrG	2012.1012
+purpose:	calculate lateral surface area and volume of a cone
+required files:	IceCreamConeRunner.java			main class
+		IceCreamCone.java			derived class
+translator:	javac IceCreamConeRunner.java
+interpreter:	java IceCreamConeRunner
+*/
+
+//main class
+public class IceCreamConeRunner
+{
+	public static void main(String[] args)
+	{
+		IceCreamCone carvel = new IceCreamCone(1.5,3.5);
+		System.out.println("vol = " + carvel.getVol());
+		System.out.println("vol = " + carvel.surfaceArea());
+	}
+}

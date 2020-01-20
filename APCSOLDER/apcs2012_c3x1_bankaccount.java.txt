@@ -1,0 +1,40 @@
+//BankAccount.java	MrG	2012.0925
+public class BankAccount
+{
+	private double myBalance;
+
+	/**
+	Constructor: initializing myBalance
+	*/
+	public BankAccount()
+	{
+		myBalance = 0;
+	}
+
+	/**
+	Accessor: shows myBalance
+	@return myBalance
+	*/
+	public double getBalance()
+	{
+		return myBalance;
+	}
+
+	/**
+	Mutator: adds money to account
+	@param amount is the money being added
+	*/
+	public void deposit(double amount)
+	{
+		myBalance = myBalance + amount;
+	}
+
+	/**
+	Mutator: subtracts money from account
+	@param amount is the money being subtracted
+	*/
+	public void withdraw(double amount)
+	{
+		myBalance = myBalance - amount;
+	}
+}

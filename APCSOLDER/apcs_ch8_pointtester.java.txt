@@ -1,0 +1,33 @@
+/*
+PointTester.java	MrG	2012.0208
+purpose: implement a Point class for Polygon.java!
+required files: 	PointTester.java		main class
+			Point.java			derived class
+translator phase:	javac PointTester.java
+interpreter phase:	java PointTester
+*/
+
+public class PointTester
+{
+	public static void main(String[] args)
+	{
+		Point p1 = new Point(0,0);
+		Point p2 = new Point(2,2);
+		Point p3 = new Point(4,0);
+
+		System.out.println("p1 = " + p1);
+		System.out.println("p2 = " + p2);
+		System.out.println("p3 = " + p3);
+		System.out.println("p3.getX() = " + p3.getX());
+		System.out.println("p3.getY() = " + p3.getY());
+
+		if(p1.equals(p2))
+		{
+			System.out.println("p1==p2");
+		}
+		else
+		{
+			System.out.println("p1!=p2");
+		}
+	}
+}

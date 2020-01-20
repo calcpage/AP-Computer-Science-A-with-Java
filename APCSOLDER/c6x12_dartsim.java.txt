@@ -1,0 +1,22 @@
+/*
+DartSim.java		MrG		2012.0131
+purpose:	estimate pi via monte carlo simulation
+required files:	DartSim.java			main class
+		Dart.java			derived class
+translator:	javac DartSim.java
+interpreter:	java DartSim trials
+*/
+public class DartSim
+{
+	public static void main(String[] args)
+	{
+		int trials = Integer.parseInt(args[0]);
+		Dart myDart = new Dart();
+		for(int k=1; k<=trials; k++)
+		{
+			myDart.toss();
+			System.out.print("% done = " + (double)k*100/trials);
+			System.out.println("\tpi = " + 4.0*myDart.getHits()/myDart.getThrows());
+		}
+	}
+}

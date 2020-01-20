@@ -1,0 +1,10 @@
+import java.awt.Rectangle;
+public class AreaTester
+{
+	public static void main(String[] args)
+	{
+		Rectangle foo = new Rectangle(10,20,30,40);
+		System.out.println("foo = " + foo);
+		System.out.println("Area = " + foo.getWidth()*foo.getHeight());
+	}
+}

@@ -1,0 +1,44 @@
+/*
+RomanTester.java	MrG	2013.0125
+purpose: create a Roman Numeral Arithmetic
+required files: RomanTester.java	main class
+		Roman.java		derived class
+translator:  javac RomanTester.java
+interpreter: java RomanTester num1 num2
+*/
+
+public class RomanTester
+{
+	public static void main(String[] args)
+	{
+		int num1 = Integer.parseInt(args[0]);
+		int num2 = Integer.parseInt(args[1]);
+		
+		Roman caesar = new Roman(num1);
+		Roman brutus = new Roman(num2);
+
+		System.out.println("num 1 = " + caesar);
+		System.out.println("num 2 = " + brutus);
+
+		if(caesar.compareTo(brutus)<0)
+		{
+			System.out.println(caesar + " < " + brutus);
+		}
+		
+		if(caesar.equals(brutus))
+		{
+			System.out.println(caesar + " = " + brutus);
+		}
+
+		if(caesar.compareTo(brutus)>0)
+		{
+			System.out.println(caesar + " > " + brutus);
+		}
+
+		Roman sum = caesar.add(brutus);
+		System.out.println(caesar + " + " + brutus + " = " + sum);
+
+		Roman diff = caesar.sub(brutus);
+		System.out.println(caesar + " - " + brutus + " = " + diff);	
+	}
+}

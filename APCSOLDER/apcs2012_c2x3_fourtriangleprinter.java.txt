@@ -1,0 +1,15 @@
+import java.awt.Rectangle;
+public class FourRectanglePrinter
+{
+	public static void main(String[] args)
+	{
+		Rectangle box = new Rectangle(10,20,30,50);
+		System.out.println(box);
+		box.translate(30,0);
+		System.out.println(box);
+		box.translate(0,50);
+		System.out.println(box);
+		box.translate(-30,0);
+		System.out.println(box);
+	}
+}

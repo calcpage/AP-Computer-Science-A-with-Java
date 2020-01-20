@@ -1,0 +1,118 @@
+//NewRoman.java	MrG	2013.0125
+public class NewRoman extends Object implements Comparable
+{	
+	private int num;
+	private int[] digits;
+
+	public NewRoman(int num)
+	{
+		this.num=num;
+
+		int temp=num;
+		digits = new int[5];
+		for(int i=0; i<(int)Math.log(num)/Math.log(10)+1; i++)
+		{
+			digits[i]=temp%10;
+			temp=temp/10;
+		}
+	}
+	
+	public String toString()
+	{
+		return "" + intToRom(num);
+	}
+
+	private String intToRom(int num)
+	{
+		String temp = "";
+
+		if(digits[0]==1){temp="i"+temp;}
+		if(digits[0]==2){temp="ii"+temp;}
+		if(digits[0]==3){temp="iii"+temp;}
+		if(digits[0]==4){temp="iv"+temp;}
+		if(digits[0]==5){temp="v"+temp;}
+		if(digits[0]==6){temp="vi"+temp;}
+		if(digits[0]==7){temp="vii"+temp;}
+		if(digits[0]==8){temp="viii"+temp;}
+		if(digits[0]==9){temp="ix"+temp;}
+
+		if(digits[1]==1){temp="x "+temp;}
+		if(digits[1]==2){temp="xx "+temp;}
+		if(digits[1]==3){temp="xxx "+temp;}
+		if(digits[1]==4){temp="xl "+temp;}
+		if(digits[1]==5){temp="l "+temp;}
+		if(digits[1]==6){temp="lx "+temp;}
+		if(digits[1]==7){temp="lxx "+temp;}
+		if(digits[1]==8){temp="lxxx "+temp;}
+		if(digits[1]==9){temp="xc "+temp;}
+
+		if(digits[2]==1){temp="c "+temp;}
+		if(digits[2]==2){temp="cc "+temp;}
+		if(digits[2]==3){temp="ccc "+temp;}
+		if(digits[2]==4){temp="cd "+temp;}
+		if(digits[2]==5){temp="d "+temp;}
+		if(digits[2]==6){temp="dc "+temp;}
+		if(digits[2]==7){temp="dcc "+temp;}
+		if(digits[2]==8){temp="dccc "+temp;}
+		if(digits[2]==9){temp="cm "+temp;}
+
+		if(digits[3]==1){temp="m "+temp;}
+		if(digits[3]==2){temp="mm "+temp;}
+		if(digits[3]==3){temp="mmm "+temp;}
+		if(digits[3]==4){temp="mV "+temp;}
+		if(digits[3]==5){temp="V "+temp;}
+		if(digits[3]==6){temp="Vm "+temp;}
+		if(digits[3]==7){temp="Vmm "+temp;}
+		if(digits[3]==8){temp="Vmmm "+temp;}
+		if(digits[3]==9){temp="mX "+temp;}
+
+		if(digits[4]==1){temp="X "+temp;}
+		if(digits[4]==2){temp="XX "+temp;}
+		if(digits[4]==3){temp="XXX "+temp;}
+		if(digits[4]==4){temp="XL "+temp;}
+		if(digits[4]==5){temp="L "+temp;}
+		if(digits[4]==6){temp="LX "+temp;}
+		if(digits[4]==7){temp="LXX "+temp;}
+		if(digits[4]==8){temp="LXXX "+temp;}
+		if(digits[4]==9){temp="XM "+temp;}
+
+		return temp;
+	}
+
+	public int getNum()
+	{
+		return num;
+	}
+
+	public int compareTo(Object other)
+	{
+		NewRoman temp = (NewRoman)other;
+		return this.getNum()-temp.getNum();
+	}
+
+	public boolean equals(Object other)
+	{
+		NewRoman temp = (NewRoman)other;
+		return this.compareTo(temp)==0;
+	}
+
+	public NewRoman add(NewRoman other)
+	{
+		return new NewRoman(this.num+other.getNum());
+	}
+
+	public NewRoman sub(NewRoman other)
+	{
+		return new NewRoman(this.num-other.getNum());
+	}
+
+	public NewRoman mul(NewRoman other)
+	{
+		return new NewRoman(this.num*other.getNum());
+	}
+
+	public NewRoman exp(NewRoman other)
+	{
+		return new NewRoman((int)Math.pow(this.num,other.getNum()));
+	}
+}

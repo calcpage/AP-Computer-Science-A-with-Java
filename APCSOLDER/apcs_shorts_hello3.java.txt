@@ -1,0 +1,28 @@
+/*
+Hello3.java	MrG	2013.0927
+purpose:	playing with a GUI for user input
+required files:	Hello3.java		main class
+translator:	javac Hello3.java
+interpreter:	java Hello3
+*/
+
+//imported class
+import javax.swing.JOptionPane;
+
+//main method
+public class Hello3
+{
+	public static void main(String[] args)
+	{
+		String name = JOptionPane.showInputDialog("name? ");
+		System.out.println("Hello, " + name + ", how about a nice game of chess?");
+		System.exit(0);
+	}
+}
+
+//lower-case
+//UPPER_CASE
+//ProperCase
+//camelCase
+
+//LAMP

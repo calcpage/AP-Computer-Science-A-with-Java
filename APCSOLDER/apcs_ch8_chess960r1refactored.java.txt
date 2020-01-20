@@ -1,0 +1,86 @@
+/*
+Chess960V1Refactored.java		MrG		2013.0226
+purpose: 	randomly generate 1 of the 960 Fischer Random Chess Boards
+required file:	Chess960V1.java					main class
+translator:	javac Chess960V1Refactored.java
+interpreter:	java Chess960V1Refactored
+*/
+
+import java.util.Random;
+
+public static class Chess960V1Refactored
+{
+	//this is a static class so:
+	//String[] is constructed in main()
+	//String[] is modified in main()
+	//String[] is accessed in main()
+	public static void main(String[] args)
+	{
+		String[] whitePieces = new String[8];
+		Bishop(whitePieces,0);
+		Bishop(whitePieces,1);
+		setPiece(whitePieces,"Q");
+		setPiece(whitePieces,"N");
+		setPiece(whitePieces,"N");
+		setLastPiece(whitePieces,"R");
+		setLastPiece(whitePieces,"K");
+		setLastPiece(whitePieces,"R");
+		System.out.println(toString(whitePieces));
+	}
+
+	/**
+	modify String[] with "B" on a randomly selected even or odd index
+	@param wP white's first rank of pieces on the chess board
+	@param offset add 0 for even index, add 1 for odd
+	*/
+	public static void Bishop(String[] wP, int offset)
+	{
+		Random die = new Random();
+		wP[die.nextInt(4)*2+offset]="B";
+	}
+
+	/**
+	modify String[] with piece on randomly selected index for an empty square
+	@param wP white's first rank of pieces on the chess board
+	@param piece can be "Q" for Queen or "N" for Knight
+	*/
+	public static void setPiece(String[] wP, String piece)
+	{
+		int pos;
+		Random die = new Random();
+		do
+			pos = die.nextInt(8);
+		while(wP[pos]!=null);
+		wP[pos]=piece;
+	}
+
+	/**
+	modify String[] with piece on an index for the first empty square found
+	@param wP white's first rank of pieces on the chess board
+	@param piece can be "R" for Rook or "K" for King
+	*/
+	public static void setLastPiece(String[] wP, String piece)
+	{
+		int pos=0;
+		while(wP[pos]!=null)
+		{
+			pos++;
+		}
+		wP[pos]=piece;
+	}
+
+	/**
+	access contents of a String[]
+	@param wP white's first rank of pieces on the chess board
+	@return String[] first rank as a String
+	*/
+	public static String toString(String[] wP)
+	{
+		String temp = "";
+		for(int k=0; k<wP.length; k++)
+		{
+			temp += wP[k];
+		}
+		return temp;
+	}
+}

@@ -1,0 +1,50 @@
+/*
+NewRomanTester.java	MrG	2013.0125
+purpose: create a Roman Numeral Arithmetic
+required files: NewRomanTester.java	main class
+		NewRoman.java		derived class
+translator:  javac NewRomanTester.java
+interpreter: java NewRomanTester num1 num2
+*/
+
+public class NewRomanTester
+{
+	public static void main(String[] args)
+	{
+		int num1 = Integer.parseInt(args[0]);
+		int num2 = Integer.parseInt(args[1]);
+		
+		NewRoman caesar = new NewRoman(num1);
+		NewRoman brutus = new NewRoman(num2);
+
+		System.out.println("num 1 = " + caesar);
+		System.out.println("num 2 = " + brutus);
+
+		if(caesar.compareTo(brutus)<0)
+		{
+			System.out.println(caesar + " < " + brutus);
+		}
+		
+		if(caesar.equals(brutus))
+		{
+			System.out.println(caesar + " = " + brutus);
+		}
+
+		if(caesar.compareTo(brutus)>0)
+		{
+			System.out.println(caesar + " > " + brutus);
+		}
+
+		NewRoman sum = caesar.add(brutus);
+		System.out.println(caesar + " + " + brutus + " = " + sum);
+
+		NewRoman diff = caesar.sub(brutus);
+		System.out.println(caesar + " - " + brutus + " = " + diff);
+
+		NewRoman prod = caesar.mul(brutus);
+		System.out.println(caesar + " * " + brutus + " = " + prod);
+
+		NewRoman pow = caesar.exp(brutus);
+		System.out.println(caesar + " ^ " + brutus + " = " + pow);	
+	}
+}

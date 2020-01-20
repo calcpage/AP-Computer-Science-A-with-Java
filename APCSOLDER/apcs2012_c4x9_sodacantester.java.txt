@@ -1,0 +1,23 @@
+/**
+SodaCanTester.java	MrG	2012.1010
+purpose:	calculate volume and surface area of a cylinder
+required files:	SodaCanTester.java		main class
+		SodaCan.java			derived class
+translator:	javac SodaCanTester.java
+interperter:	java SodaCanTester d h
+*/
+
+//main class
+public class SodaCanTester
+{
+	public static void main(String[] args)
+	{
+		double d = Double.parseDouble(args[0]);
+		double h = Double.parseDouble(args[1]);
+		SodaCan emmerson = new SodaCan(d,h);
+		System.out.println("d = " + emmerson.getD());
+		System.out.println("h = " + emmerson.getH());
+		System.out.println("v = " + emmerson.getV());
+		System.out.println("s = " + emmerson.getS());
+	}
+}

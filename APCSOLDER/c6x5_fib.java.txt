@@ -1,0 +1,52 @@
+//Fib.java		MrG		2012.0109
+public class Fib
+{
+	/*
+		private instance fields 
+		aka private parts
+		aka naughty bits
+	*/
+	private double older;
+	private double old;
+	private double fNew;
+
+	/**
+		Constructor: initialize first 2 values of fib seq
+		@param first = fib(1)
+		@param second = fib(2)
+	*/
+	public Fib(int first, int second)
+	{
+		older = first;
+		old = second;
+	}
+	/**
+		Mutator: find fib(n) using fib(n-1) for all n>2
+	*/
+	public void nextFib()
+	{
+		fNew = old + older;
+		older = old;
+		old = fNew;
+	}
+
+	/**
+		Accessor: what is the current fib value
+		@return fib(n)
+	*/
+	public double getFib()
+	{
+		return fNew;
+	}
+
+	/**
+		Accessor: ratio of fib(n)/fib(n-1) for limit
+		@return fib(n)/fib(n-1)
+	*/
+	public double getRatio()
+	{
+		return old/older;
+	}
+
+
+}

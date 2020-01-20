@@ -1,0 +1,23 @@
+/*
+PrimeGenRunner.java	MrG	2012.0112
+purpose: 	output a list of prime integers less than a given limit
+required:	PrimeGenRunner.java				main class
+		PrimeGen.java					derived class
+translator:	javac PrimeGenRunner.java
+interpreter:	java PrimeGenRunner limit
+*/
+public class PrimeGenRunner
+{
+	public static void main(String[] args)
+	{
+		int limit = Integer.parseInt(args[0]);
+		
+		PrimeGen zack = new PrimeGen();
+
+		System.out.println("i\tPrime(i)");
+		for(int i=1; i<=limit; i++)
+		{
+			System.out.println(i + "\t" + zack.nextPrime());
+		}
+	}
+}

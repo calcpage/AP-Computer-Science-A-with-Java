@@ -1,0 +1,108 @@
+/*
+Chess960V2.java		MrG		2013.0226
+purpose: 	randomly generate all 960 Fischer Random Chess Boards
+required file:	Chess960V2.java				main class
+translator:	javac Chess960V2.java
+interpreter:	java Chess960V2
+*/
+
+import java.util.Random;
+import java.util.ArrayList;
+
+public class Chess960V2
+{
+	public static void main(String[] args)
+	{
+		int printCount=0;
+		ArrayList<String[]> foo = new ArrayList<String[]>();
+		while(printCount<960)
+		{
+			String[] whitePieces = new String[8];
+			setBishop(whitePieces,0);
+			setBishop(whitePieces,1);
+			setPiece(whitePieces,"Q");
+			setPiece(whitePieces,"N");
+			setPiece(whitePieces,"N");
+			setLastPiece(whitePieces,"R");
+			setLastPiece(whitePieces,"K");
+			setLastPiece(whitePieces,"R");
+			if(!found(whitePieces,foo))
+			{
+				foo.add(whitePieces);
+				System.out.println(printCount+"\t"+toString(whitePieces));
+				printCount++;
+			}
+		}
+		fileList(foo);
+	}
+
+	public static boolean found(String[] wP, ArrayList<String[]> bar)
+	{
+		for(String[] board:bar)
+		{
+			if(sameBoard(wP,board))
+			{
+				return true;
+			}
+		}
+		return false;
+	}
+
+	public static boolean sameBoard(String[] b1, String[] b2)
+	{
+		for(int i=0; i<b1.length; i++)
+		{
+			if(!b1[i].equals(b2[i]))
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+	public static void fileList(ArrayList<String[]> bar)
+	{
+		EasyWriter ross = new EasyWriter("960.txt");
+		for(int j=0; j<960; j++)
+		{
+			ross.println(toString(bar.get(j)));
+		}
+		ross.close();
+	}
+
+	public static void setBishop(String[] wP, int offset)
+	{
+		Random die = new Random();
+		wP[die.nextInt(4)*2+offset]="B";
+	}
+
+	public static void setPiece(String[] wP, String piece)
+	{
+		int pos;
+		Random die = new Random();
+		do
+			pos = die.nextInt(8);
+		while(wP[pos]!=null);
+		wP[pos]=piece;
+	}
+
+	public static void setLastPiece(String[] wP, String piece)
+	{
+		int pos=0;
+		while(wP[pos]!=null)
+		{
+			pos++;
+		}
+		wP[pos]=piece;
+	}
+
+	public static String toString(String[] wP)
+	{
+		String temp = "";
+		for(int k=0; k<wP.length; k++)
+		{
+			temp += wP[k];
+		}
+		return temp;
+	}
+}

@@ -1,0 +1,30 @@
+//Newton.java	MrG	2012.0119
+public class Newton
+{
+	private double a;
+	private int n;
+	private double eps;
+	private double oldGuess;
+	private double newGuess;
+
+	public Newton(double a, int n, double eps)
+	{
+		this.a = a;
+		this.n = n;
+		this.eps = eps;
+		oldGuess = 1;
+		newGuess = 1;
+	}
+
+	public boolean hasMoreGuesses()
+	{
+		return Math.abs(oldGuess-newGuess)>eps;
+	}
+
+	public double nextGuess()
+	{
+		oldGuess = newGuess;
+		newGuess = oldGuess - (Math.pow(oldGuess,n)-a)/(n*Math.pow(oldGuess,n-1));
+		return newGuess;
+	}
+}

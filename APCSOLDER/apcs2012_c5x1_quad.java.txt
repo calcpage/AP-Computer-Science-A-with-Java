@@ -1,0 +1,69 @@
+//Quad.java	MrG	2012.1024
+public class Quad
+{
+	private double a;
+	private double b;
+	private double c;
+
+	/**
+	Constructor
+	@param a the coefficient of x^2
+	@param b the coefficient of x^1
+	@param c the coefficient of x^0
+	*/
+	public Quad(double a, double b, double c)
+	{
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
+
+	/**
+	Accessor
+	@return the Discriminant
+	*/
+	public double disc()
+	{
+		return b*b-4*a*c;
+	}
+
+	/**
+	Accessor
+	preCondition: disc()>=0
+	@return first Real root
+	*/
+	public double root1()
+	{
+		return (-b+Math.sqrt(disc()))/(2*a);
+	}
+
+	/**
+	Accessor
+	preCondition: disc()>=0
+	@return second Real root
+	*/
+	public double root2()
+	{
+		return (-b-Math.sqrt(disc()))/(2*a);
+	}
+
+	/**
+	Accessor
+	preCondition: disc()<0
+	@return coefficient of real part of Complex root
+	*/
+	public double real()
+	{
+		return -b/(2*a);
+	}
+
+	/**
+	Accessor
+	preCondition: disc()<0
+	@return coefficient of imaginary part of Complex root
+	*/
+	public double imag()
+	{
+		return Math.sqrt(Math.abs(disc()))/(2*a);
+	}
+}

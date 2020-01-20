@@ -1,0 +1,27 @@
+//Car.java	MrG	2012.1002
+public class Car
+{
+	private double tank;
+	private double efficiency;
+
+	public Car(double efficiency)
+	{
+		tank = 0;
+		this.efficiency = efficiency;
+	}
+
+	public double getGas()
+	{
+		return tank;
+	}
+
+	public void addGas(double amount)
+	{
+		tank = tank + amount;
+	}
+
+	public void drive(double miles)
+	{
+		tank = tank - miles/efficiency;
+	}
+}
