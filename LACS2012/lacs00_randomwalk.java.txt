@@ -1,0 +1,37 @@
+/**
+RandomWalk.java		MrG	2012.0525
+purpose:	test StdDraw class and simulate random walk!
+required files:	RandomWalk.java				main class
+		StdDraw.java				graphics class
+translator:	javac RandomWalk.java
+interpreter:	java RandomWalk N
+*/
+public class RandomWalk
+{
+	public static void main(String[] args)
+	{
+		int N = Integer.parseInt(args[0]);
+		StdDraw.setXscale(-N,N);
+		StdDraw.setYscale(-N,N);
+		StdDraw.clear(StdDraw.GRAY);
+
+		int x=0;
+		int y=0;
+		int steps = 0;
+		while(Math.abs(x)<N && Math.abs(y)<N)
+		{
+			StdDraw.setPenColor(StdDraw.WHITE);
+			StdDraw.filledSquare(x,y,0.45);
+			double r = Math.random();
+			if	(r<0.25){x--;}
+			else if	(r<0.50){x++;}
+			else if	(r<0.75){y--;}
+			else if	(r<1.00){y++;}
+			steps++;
+			StdDraw.setPenColor(StdDraw.BLUE);
+			StdDraw.filledSquare(x,y,0.45);
+			StdDraw.show(40);
+		}
+		System.out.println("total steps = " + steps);
+	}
+}

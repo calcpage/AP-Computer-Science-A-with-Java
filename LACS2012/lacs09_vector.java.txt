@@ -1,0 +1,54 @@
+//Vector.java		MrG	2012.0621
+public class Vector
+{
+	private double x;
+	private double y;
+
+	public Vector(double x, double y)
+	{
+		this.x = x;
+		this.y = y;
+	}
+
+	public double getX()
+	{
+		return x;
+	}
+
+	public double getY()
+	{
+		return y;
+	}
+
+	public String toString()
+	{
+		return "<" + x + ", " + y + ">";
+	}
+
+	public Vector dilate(double size)
+	{
+		return new Vector(x*size,y*size);
+	}
+
+	public Vector sum(Vector other)
+	{
+		double tempX = this.x+other.getX();
+		double tempY = this.y+other.getY();
+		return new Vector(tempX,tempY);
+	}
+
+	public Vector diff(Vector other)
+	{
+		return this.sum(other.dilate(-1));
+	}
+
+	public double dot(Vector other)
+	{
+		return this.x*other.getX()+this.y*other.getY();
+	}
+
+	public double abs()
+	{
+		return Math.sqrt(this.dot(this));
+	}
+}

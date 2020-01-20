@@ -1,0 +1,28 @@
+//Turtle.java	MrG	2012.0604
+public class Turtle
+{
+	private double x;
+	private double y;
+	private double theta;
+
+	public Turtle(double x, double y, double theta)
+	{
+		this.x=x;
+		this.y=y;
+		this.theta=theta;
+	}
+
+	public void turnLeft(double delta)
+	{
+		theta+=delta;
+	}
+
+	public void goForward(double step)
+	{
+		double oldx=x;
+		double oldy=y;
+		x+=step*Math.cos(Math.toRadians(theta));
+		y+=step*Math.sin(Math.toRadians(theta));
+		StdDraw.line(oldx,oldy,x,y);
+	}
+}

@@ -1,0 +1,46 @@
+//Complex.java		Mrg	2012.0620
+public class Complex
+{
+	private double re;
+	private double im;
+
+	public Complex(double re, double im)
+	{
+		this.re=re;
+		this.im=im;
+	}
+
+	public String toString()
+	{
+		return "" + re + " + " + im + "i";
+	}
+
+	public double getRe()
+	{
+		return re;
+	}
+
+	public double getIm()
+	{
+		return im;
+	}
+
+	public Complex sum(Complex z)
+	{
+		double tempRe = this.re + z.getRe();
+		double tempIm = this.im + z.getIm();
+		return new Complex(tempRe, tempIm);
+	}
+
+	public Complex prod(Complex z)
+	{
+		double tempRe = this.re*z.getRe()-this.im*z.getIm();
+		double tempIm = this.re*z.getIm()+this.im*z.getRe();
+		return new Complex(tempRe,tempIm);
+	}
+
+	public double abs()
+	{
+		return Math.sqrt(re*re+im*im);
+	}
+}

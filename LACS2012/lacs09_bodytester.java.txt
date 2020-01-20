@@ -1,0 +1,29 @@
+/**
+BodyTester.java		MrG	2012.0621
+purpose:	model a single body in space!
+required files:	BodyTester.java		main class
+		Body.java		derived class
+		Vector.java		adt class
+		StdDraw.java		graphics class
+translator:	javac BodyTester.java
+interpreter:	java BodyTester rx ry vx vy
+*/
+public class BodyTester
+{
+	public static void main(String[] args)
+	{
+		double rx = Double.parseDouble(args[0]);
+		double ry = Double.parseDouble(args[1]);
+		double vx = Double.parseDouble(args[2]);
+		double vy = Double.parseDouble(args[3]);
+		Vector pos = new Vector(rx,ry);
+		Vector vel = new Vector(vx,vy);
+		Body mars = new Body(pos, vel);
+		while(true)
+		{
+			mars.draw();
+			mars.move(.01);
+			StdDraw.show(50);
+		}
+	}
+}

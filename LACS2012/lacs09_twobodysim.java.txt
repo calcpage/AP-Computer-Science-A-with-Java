@@ -1,0 +1,42 @@
+/**
+TwoBodySim.java	MrG	2012.0621
+purpose:	simulate a binary star system, nbody simulation, n=2, no G
+required files:	TwoBodySim.java			main class
+		TwoBody.java			derived class
+		Body.java			nbody class, n=1
+		Vector.java			adt class
+		StdDraw.java			graphics class
+translator:	javac TwoBodySim.java
+interpreter:	java TwoBodySim
+*/
+public class TwoBodySim
+{
+	public static void main(String[] args)
+	{
+		double size= 5.0e10;
+
+		double rx1 = 0.0e00;
+		double ry1 = 4.5e10;
+		double vx1 = 1.0e04;
+		double vy1 = 0.0e00;
+		Vector r1 = new Vector(rx1,ry1);
+		Vector v1 = new Vector(vx1,vy1);
+		Body star1 = new Body(r1,v1);
+
+		double rx2 = 0.0e00;
+		double ry2 = -4.5e10;
+		double vx2 = -1.0e04;
+		double vy2 = 0.0e00;
+		Vector r2 = new Vector(rx2,ry2);
+		Vector v2 = new Vector(vx2,vy2);
+		Body star2 = new Body(r2,v2);
+
+		TwoBody binary = new TwoBody(size, star1, star2);
+		while(true)
+		{
+			binary.move(25000);
+			binary.draw();
+			StdDraw.show(50);
+		}
+	}
+}

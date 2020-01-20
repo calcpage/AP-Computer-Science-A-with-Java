@@ -1,0 +1,30 @@
+/**
+ComplexTester.java	MrG	2012.0620
+purpose:	Complex Arithmetic!
+required files:	ComplexTester.java		main class
+		Complex.java			derived class
+translator:	javac ComplexTester.java
+interpreter:	java ComplexTester
+*/
+public class ComplexTester
+{
+	public static void main(String[] args)
+	{
+		double a = Double.parseDouble(args[0]);
+		double b = Double.parseDouble(args[1]);
+		double c = Double.parseDouble(args[2]);
+		double d = Double.parseDouble(args[3]);
+
+		Complex z1 = new Complex(a,b);
+		Complex z2 = new Complex(c,d);
+		Complex z3 = z1.sum(z2);
+		Complex z4 = z1.prod(z2);
+		
+		System.out.println("z1 = " + z1);
+		System.out.println("z2 = " + z2);
+		System.out.println("z3 = " + z3);
+		System.out.println("z4 = " + z4);
+		System.out.println("z1.abs() = " + z1.abs());
+		System.out.println("z2.abs() = " + z2.abs());
+	}
+}

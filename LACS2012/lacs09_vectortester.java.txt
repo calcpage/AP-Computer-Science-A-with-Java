@@ -1,0 +1,26 @@
+/**
+VectorTester.java	MrG	2012.0621
+purpose:	manipulate 2D Vectors!
+required files:	VectorTester.java	main class
+		Vector.java		derived class
+translator:	javac VectorTester.java
+interpreter:	java VectorTester
+*/
+public class VectorTester
+{
+	public static void main(String[] args)
+	{
+		Vector a = new Vector(2,3);
+		Vector b = new Vector(3,4);
+		Vector c = a.sum(b);
+		Vector d = a.diff(b);
+
+		System.out.println("a = " + a);
+		System.out.println("b = " + b);
+		System.out.println("a+b = " + c);
+		System.out.println("a-b = " + d);
+		System.out.println("a*b = " + a.dot(b));
+		System.out.println("a.abs() = " + a.abs());
+		System.out.println("b.abs() = " + b.abs());
+	}
+}

@@ -1,0 +1,40 @@
+/**
+Koch.java	MrG	2012.0607
+purpose:	graph a Koch curve
+required files:	Koch.java			main class
+		Turtle.java			derived class
+		StdDraw.java			graphics class
+translator:	java Koch.java
+interpreter:	java Koch N
+*/
+public class Koch
+{
+	public static void koch(int n, double step, Turtle turtle)
+	{
+		if(n==0)
+		{
+			turtle.goForward(step);
+			return;
+		}
+		koch(n-1,step,turtle);
+		turtle.turnLeft(60);
+		koch(n-1,step,turtle);
+		turtle.turnLeft(-120);
+		koch(n-1,step,turtle);
+		turtle.turnLeft(60);
+		koch(n-1,step,turtle);
+	}
+
+	public static void main(String[] args)
+	{
+		StdDraw.setXscale(0,1.5);
+		StdDraw.setYscale(0,1.5);
+		int N = Integer.parseInt(args[0]);
+		Turtle blaise = new Turtle(0,1,0);
+		koch(N,1/Math.pow(3,N),blaise);
+		blaise.turnLeft(-120);
+		koch(N,1/Math.pow(3,N),blaise);
+		blaise.turnLeft(-120);
+		koch(N,1/Math.pow(3,N),blaise);
+	}
+}

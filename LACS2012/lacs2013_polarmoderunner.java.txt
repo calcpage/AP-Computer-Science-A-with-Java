@@ -1,0 +1,30 @@
+/*
+PolarModeRunner.java		MrG		2013.0531
+purpose:	graph r=a+b*cos(n*t) as in polar mode on a TI83
+required files:	PolarModeRunner.java			main class
+		PolarMode.java				derived class
+		StdDraw.java				graphics class
+translator:	javac PolarModeRunner.java
+interpreter:	java PolarModeRunner a b n xMin xMax yMin yMax
+*/
+public class PolarModeRunner
+{
+	public static void main(String[] args)
+	{
+		double a = Double.parseDouble(args[0]);
+		double b = Double.parseDouble(args[1]);
+		double n = Double.parseDouble(args[2]);
+		double xMin = Double.parseDouble(args[3]);
+		double xMax = Double.parseDouble(args[4]);
+		double yMin = Double.parseDouble(args[5]);
+		double yMax = Double.parseDouble(args[6]);
+
+		StdDraw.setXscale(xMin, xMax);
+		StdDraw.setYscale(yMin, yMax);
+		
+		PolarMode TI83 = new PolarMode(a,b,n,xMin,xMax,yMin,yMax);
+		TI83.axes();
+		TI83.grid();
+		TI83.plot();
+	}
+}

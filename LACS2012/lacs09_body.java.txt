@@ -1,0 +1,22 @@
+//Body.java	MrG	2012.0621
+public class Body
+{
+	private Vector r;
+	private Vector v;
+
+	public Body(Vector r, Vector v)
+	{
+		this.r=r;
+		this.v=v;
+	}
+
+	public void draw()
+	{
+		StdDraw.point(r.getX(),r.getY());
+	}
+
+	public void move(double time)
+	{
+		r = r.sum(v.dilate(time));
+	}
+}

@@ -1,0 +1,29 @@
+/*
+FunctionModeRunner.java		MrG		2013.0521
+purpose:	graph y=ax^2+bx+c as in function mode on a TI83
+required files:	FunctionModeRunner.java				main class
+		FunctionMode.java				derived class
+		StdDraw.java					graphics class
+translator:	javac FunctionModeRunner.java
+interpreter:	java FunctionModeRunner a b c xMin xMax yMin yMax
+*/
+public class FunctionModeRunner
+{
+	public static void main(String[] args)
+	{
+		double a = Double.parseDouble(args[0]);
+		double b = Double.parseDouble(args[1]);
+		double c = Double.parseDouble(args[2]);
+		double xMin = Double.parseDouble(args[3]);
+		double xMax = Double.parseDouble(args[4]);
+		double yMin = Double.parseDouble(args[5]);
+		double yMax = Double.parseDouble(args[6]);
+
+		StdDraw.setXscale(xMin, xMax);
+		StdDraw.setYscale(yMin, yMax);
+
+		FunctionMode TI83 = new FunctionMode(a,b,c);
+		TI83.axes(xMin,xMax,yMin,yMax);
+		TI83.plot(xMin,xMax);
+	}
+}

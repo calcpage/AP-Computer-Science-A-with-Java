@@ -1,0 +1,33 @@
+/**
+Polar.java	MrG	2012.0529
+purpose:	test graphics.jar by making polar graphs!
+required files:	Polar.java			main class
+		StdDraw.java				graphics class
+translator:	javac Polar.java
+interperter:	java Polar
+*/
+public class Polar
+{
+	public static void main(String[] args)
+	{
+		StdDraw.setXscale(-2,+2);
+		StdDraw.setYscale(-2,+2);
+
+		double x0 = 1;
+		double y0 = 0;
+
+		StdDraw.setPenColor(StdDraw.RED);
+		StdDraw.setPenRadius(.02);
+
+		for(double t=0.0; t<=360.0; t+=2)
+		{
+			double theta = Math.toRadians(t);
+			double r = 1+0.9*Math.sin(theta);
+			double x1 = r*Math.cos(theta);
+			double y1 = r*Math.sin(theta);
+			StdDraw.line(x0,y0,x1,y1);
+			x0=x1;
+			y0=y1;			
+		}
+	}
+}

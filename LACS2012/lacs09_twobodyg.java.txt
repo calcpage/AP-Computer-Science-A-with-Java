@@ -1,0 +1,35 @@
+//TwoBodyG.java		MrG		2012.0621 (work in progress)
+public class TwoBodyG
+{
+	private double size;
+	private BodyG[] planets;
+
+	public TwoBodyG(double size, BodyG b1, BodyG b2)
+	{
+		this.size = size;
+		StdDraw.setXscale(-size,size);
+		StdDraw.setYscale(-size,size);
+		planets = new BodyG[2];
+		planets[0]=b1;
+		planets[1]=b2;
+	}
+
+	public void draw()
+	{
+		planets[0].draw();
+		planets[1].draw();
+	}
+
+	public void move(double time)
+	{
+		Vector f0 = new Vector(0,0);
+		f0.sum(planets[0].pullFrom(planets[1]));
+		f0.sum(planets[1].pullFrom(planets[0]));
+		planets[0].move(f0,time);
+		
+		Vector f1 = new Vector(0,0);
+		f1.sum(planets[1].pullFrom(planets[0]));
+		f1.sum(planets[0].pullFrom(planets[1]));
+		planets[1].move(f1,time);
+	}
+}

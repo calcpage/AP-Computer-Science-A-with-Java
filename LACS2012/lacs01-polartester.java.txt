@@ -1,0 +1,30 @@
+/**
+PolarTester.java	MrG	2012.0529
+purpose:	test graphics.jar by making polar graphs!
+required files:	PolarTester.java			main class
+		graphics.jar				utility classes
+translator:	javac -classpath .:./graphics.jar PolarTester.java
+interperter:	java -classpath .:./graphics.jar PolarTester
+*/
+public class PolarTester
+{
+	public static void main(String[] args)
+	{
+		StdDraw.setXscale(-1,+1);
+		StdDraw.setYscale(-1,+1);
+
+		double x0 = 0;
+		double y0 = 0;
+
+		for(double t=0.0; t<=360.0; t+=0.1)
+		{
+			double theta = Math.toRadians(t);
+			double r = Math.sin(3*theta);
+			double x1 = r*Math.cos(theta);
+			double y1 = r*Math.sin(theta);
+			StdDraw.line(x0,y0,x1,y1);
+			x0=x1;
+			y0=y1;			
+		}
+	}
+}

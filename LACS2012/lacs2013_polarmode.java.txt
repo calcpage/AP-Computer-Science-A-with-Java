@@ -1,0 +1,58 @@
+//PolarMode.java	MrG	2013.0531
+public class PolarMode
+{
+	private double a;
+	private double b;
+	private double n;
+	private double xMin;
+	private double xMax;
+	private double yMin;
+	private double yMax;
+
+	public PolarMode(double a, double b, double n, double xMin, double xMax, double yMin, double yMax)
+	{
+		this.a=a;
+		this.b=b;
+		this.n=n;
+		this.xMin=xMin;
+		this.xMax=xMax;
+		this.yMin=yMin;
+		this.yMax=yMax;
+	}
+
+	public void axes()
+	{
+		StdDraw.setPenRadius(.005);
+		StdDraw.line(0,yMin,0,yMax);
+		StdDraw.line(xMin,0,xMax,0);
+		StdDraw.text(xMax,-1,"x");
+		StdDraw.text(1,yMax,"y");
+	}
+
+	public void grid()
+	{
+		StdDraw.setPenRadius(.001);
+		StdDraw.setPenColor(StdDraw.BLUE);
+		for(double r=0; r<=xMax; r++)
+		{
+			StdDraw.circle(0,0,r);
+		}
+	}
+
+	public void plot()
+	{
+		StdDraw.setPenRadius(.001);
+		StdDraw.setPenColor(StdDraw.GREEN);
+		double x0=a+b;
+		double y0=0;
+		for(double t=0; t<2*Math.PI; t+=0.01)
+		{
+			double r=a+b*Math.sin(n*t);
+			double x=r*Math.cos(t);
+			double y=r*Math.sin(t);
+			StdDraw.line(x0,y0,x,y);
+			x0=x;
+			y0=y;
+		}
+	}
+}

@@ -1,0 +1,34 @@
+/**
+BallRunner.java		MrG	2012.0531
+purpose: 	animate a bouncing ball
+required:	BallRunner.java			main class
+		Ball.java			derived class
+		StdDraw.java			graphics class
+translator:	javac BallRunner.java
+interpreter:	java BallRunner N
+*/
+public class BallRunner
+{
+	public static void main(String[] args)
+	{
+		int N = Integer.parseInt(args[0]);
+		Ball[] balls = new Ball[N];
+		for(int i=0;i<N;i++)
+		{
+			balls[i] = new Ball();
+		}
+		StdDraw.setCanvasSize(900,900);
+		StdDraw.setXscale(-10.0,+10.0);
+		StdDraw.setYscale(-10.0,+10.0);
+		while(true)
+		{
+			StdDraw.clear(StdDraw.GRAY);
+			for(int j=0;j<N;j++)
+			{
+				balls[j].move();
+				balls[j].draw();
+			}
+			StdDraw.show(10);
+		}
+	}
+}

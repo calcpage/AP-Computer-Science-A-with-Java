@@ -1,0 +1,40 @@
+/**
+DrunkTurtle.java	MrG	2012.0605
+purpose:	simulate a random walk
+required:	DrunkTurtle.java		main class
+		Turtle.java			derived class
+		StdDraw.java			graphics class
+translator:	javac DrunkTurtle.java
+interpreter:	java DrunkTurtle A N S
+*/
+public class DrunkTurtle
+{
+	public static void main(String[] args)
+	{
+		int A = Integer.parseInt(args[0]);		//angle
+		int N = Integer.parseInt(args[1]);		//num steps
+		double S = Double.parseDouble(args[2]);		//step size
+		int choices = 360/A;
+		Turtle drunk = new Turtle(0.5,0.5,0);
+		for(int i = 0; i<N; i++)
+		{
+			double turn=Math.random();
+			if(turn<0.5)
+			{
+				double left=Math.random();
+				if(left<0.5)
+				{
+					drunk.turnLeft(A*(int)(choices*Math.random()));
+				}
+				else
+				{
+					drunk.turnLeft(-A*(int)(choices*Math.random()));
+				}
+			}
+			else
+			{
+				drunk.goForward(S);
+			}
+		}
+	}
+}

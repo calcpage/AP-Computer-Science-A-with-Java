@@ -1,0 +1,61 @@
+/**
+Mandel.java		MrG		2012.0620
+purpose:	plot mandelbrot fractals
+required files:	Mandel.java		main class
+		Complex.java		derived class
+		Picture.java		pixel class
+translator:	javac Mandel.java
+		java Mandel xc yc radius dwell pixels
+*/
+import java.awt.Color;
+public class Mandel
+{
+	public static int limit(Complex z, int dwell)
+	{
+		Complex z0=z;
+		for(int t=0; t<dwell; t++)
+		{
+			if(z.abs()>2.0)
+			{
+				return t;
+			}
+			z=z.prod(z).sum(z0);
+		}
+		return dwell;
+	}
+
+	public static void main(String[] args)
+	{
+		double xc = Double.parseDouble(args[0]);
+		double yc = Double.parseDouble(args[1]);	
+		double radius = Double.parseDouble(args[2]);	
+		int dwell = Integer.parseInt(args[3]);	
+		int pixels = Integer.parseInt(args[4]);	
+
+		Color color;
+		Picture m = new Picture(pixels,pixels);
+
+		for(int r=0; r<pixels; r++)
+		{
+			for(int c=0; c<pixels; c++)
+			{
+				double x=xc-radius/2+radius*r/pixels;
+				double y=yc-radius/2+radius*c/pixels;
+				Complex z = new Complex(x,y);
+				int limit = limit(z,dwell);
+				if(limit==dwell)
+				{
+					color = new Color(0,0,0);
+				}
+				else
+				{
+					color = new Color((float)(limit)/dwell,0,0);
+				}
+				System.out.println("limit x y = " + limit + "\t" + x + "\t" + y);
+				m.set(r,c,color);
+				m.show();
+			}
+		}
+		System.out.println("mag = " + Math.pow(2/radius,2));
+	}
+}

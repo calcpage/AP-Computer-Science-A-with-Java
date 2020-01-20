@@ -1,0 +1,62 @@
+//Ball.java		MrG		2013.0603
+import java.awt.Color;
+public class Ball
+{
+	private double r;
+	private double rx;
+	private double ry;
+	private double vx;
+	private double vy;
+	private Color c;
+
+	public Ball()
+	{
+		r=Math.random();
+		//rx=20*Math.random()-10;
+		//ry=20*Math.random()-10;
+		rx=0.0;
+		ry=0.0;
+		int choice = (int)(4*Math.random());
+		if(choice==0)
+		{
+			vx=Math.random()/2;
+			vy=Math.random()/2;
+		}
+		if(choice==1)
+		{
+			vx=-Math.random()/2;
+			vy=Math.random()/2;
+		}
+		if(choice==2)
+		{
+			vx=-Math.random()/2;
+			vy=-Math.random()/2;
+		}
+		if(choice==3)
+		{
+			vx=Math.random()/2;
+			vy=-Math.random()/2;
+		}
+		c=new Color((float)Math.random(),(float)Math.random(),(float)Math.random());
+	}
+
+	public void draw()
+	{
+		StdDraw.setPenColor(c);
+		StdDraw.filledCircle(rx,ry,r);
+	}
+
+	public void move()
+	{
+		if(Math.abs(rx)>10)
+		{
+			vx=-vx;
+		}
+		if(Math.abs(ry)>10)
+		{
+			vy=-vy;
+		}
+		rx+=vx;
+		ry+=vy;
+	}
+}

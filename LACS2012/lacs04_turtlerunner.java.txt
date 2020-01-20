@@ -1,0 +1,21 @@
+/**
+TurtleRunner.java	MrG	2012.0604
+purpose:	animate a turtle leaving a path to make designs!
+required files:	TurtleRunner.java			main class
+		Turtle.java				derived class
+		StdDraw.java				graphics class
+translator:	javac TurtleRunner.java
+interpreter:	java TurtleRunner
+*/
+public class TurtleRunner
+{
+	public static void main(String[] args)
+	{
+		Turtle yertle = new Turtle(0,0,0);
+		yertle.goForward(1);
+		yertle.turnLeft(120);
+		yertle.goForward(1);
+		yertle.turnLeft(120);
+		yertle.goForward(1);
+	}
+}

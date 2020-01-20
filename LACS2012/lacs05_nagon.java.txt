@@ -1,0 +1,24 @@
+/**
+Nagon.java	MrG	2012.0605
+purpose:	I'm sick of triangles!
+required files:	Nagon.java		main class
+		Turtle.java		derived class
+		StdDraw.java		graphics class
+translator:	javac Nagon.java
+interpreter:	java Nagon N
+*/
+public class Nagon
+{
+	public static void main(String[] args)
+	{
+		int N = Integer.parseInt(args[0]);
+		double step = Math.sin(Math.PI/N);
+		double angle = 360/N;
+		Turtle poly = new Turtle(0.5,0,angle/2);
+		for(int i = 0; i<N; i++)
+		{
+			poly.goForward(step);
+			poly.turnLeft(angle);
+		}
+	}
+}

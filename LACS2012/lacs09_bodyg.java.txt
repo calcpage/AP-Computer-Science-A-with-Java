@@ -1,0 +1,40 @@
+//BodyG.java	MrG	2012.0621 (work in progress)
+public class BodyG
+{
+	private Vector r;
+	private Vector v;
+	private double m;
+
+	public BodyG(Vector r, Vector v, double m)
+	{
+		this.r=r;
+		this.v=v;
+		this.m=m;
+	}
+
+	public void draw()
+	{
+		StdDraw.point(r.getX(),r.getY());
+	}
+
+	public void move(Vector force, double time)
+	{
+		Vector a = force.dilate(1.0/m);
+		v = v.sum(a.dilate(time));
+		r = r.sum(v.dilate(time));
+	}
+
+	public Vector getR()
+	{
+		return r;
+	}
+
+	public Vector pullFrom(BodyG other)
+	{
+		double G = 6.67e-11; //meter^3*kilogram^(-1)*sec^(-2)
+		Vector deltaR = other.getR().diff(this.r);
+		double d = deltaR.abs();
+		double f = G*this.m*other.m/d/d;
+		return deltaR.dilate(1.0/deltaR.abs()).dilate(f);
+	}
+}

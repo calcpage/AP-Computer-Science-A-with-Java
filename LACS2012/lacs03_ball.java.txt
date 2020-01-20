@@ -1,0 +1,37 @@
+//Ball.java	MrG	2012.0531
+import java.awt.Color;
+public class Ball
+{
+	private double rx;
+	private double ry;
+	private double vx;
+	private double vy;
+	private double r;
+	private Color c;
+
+	public Ball()
+	{
+		int sign = Math.random()<0.5 ? -1 : 1;
+		rx=0.0;
+		ry=0.0;
+		vx=sign*Math.random()/5;
+		vy=sign*Math.random()/5;
+		r=Math.random()/2;
+		//c=Color.getHSBColor((float)Math.random(),0.8f,0.8f);
+		c=new Color((float)Math.random(),(float)Math.random(),(float)Math.random());
+	}
+
+	public void draw()
+	{
+		StdDraw.setPenColor(c);
+		StdDraw.filledCircle(rx,ry,r);
+	}
+
+	public void move()
+	{
+		if(Math.abs(rx+vx)>10){vx=-vx;}
+		if(Math.abs(ry+vy)>10){vy=-vy;}
+		rx+=vx;
+		ry+=vy;
+	}
+}

@@ -1,0 +1,84 @@
+//ParametricMode.java	MrG	2013.0521
+public class ParametricMode
+{
+	private double xMin;
+	private double xMax;
+	private double xScl;
+	private double yMin;
+	private double yMax;
+	private double yScl;
+
+	public ParametricMode(double xMin, double xMax, double xScl, double yMin, double yMax, double yScl)
+	{
+		this.xMin=xMin;
+		this.xMax=xMax;
+		this.xScl=xScl;
+		this.yMin=yMin;
+		this.yMax=yMax;
+		this.yScl=yScl;
+	}
+
+	public void axes()
+	{
+		StdDraw.setPenRadius(.005);
+		StdDraw.line(0,yMin,0,yMax);
+		StdDraw.line(xMin,0,xMax,0);
+		StdDraw.text(xMax,-1,"x");
+		StdDraw.text(1,yMax,"y");
+	}
+
+	public void grid()
+	{
+		StdDraw.setPenRadius(.001);
+		StdDraw.setPenColor(StdDraw.BLUE);
+		for(double x=xMin; x<=xMax; x+=xScl)
+		{
+			StdDraw.line(x,yMin,x,yMax);
+		}
+		for(double y=yMin; y<=yMax; y+=yScl)
+		{
+			StdDraw.line(xMin,y,xMax,y);
+		}
+	}
+
+	public void plot()
+	{
+		StdDraw.setPenRadius(.001);
+		StdDraw.setPenColor(StdDraw.GREEN);
+		//0 100 10 0 300 10 wiley cyote
+		//double t=0;
+		//double x0 = 4*t;
+		//double y0 = -16*t*t + 96*t + 112;
+		//0 300 10 0 100 10 inverse wiley
+		//double t=0;
+		//double y0 = 4*t;
+		//double x0 = -16*t*t + 96*t + 112;
+		//-2 2 1 -2 2 1 apophos/miller
+		//double t=0;
+		//double x0 = -0.7;
+		//double y0 = 1.0;
+		//-4 4 1 -4 4 1 butterfly/lorentz
+		double t=0;
+		double x0=0;
+		double y0=0;
+		for(t=0; true; t+=0.05)
+		{
+			//0 100 10 0 300 10 wiley cyote
+			//double x = 4*t;
+			//double y = -16*t*t + 96*t + 112;
+			//0 300 10 0 100 10 inverse wiley
+			//double y = 4*t;
+			//double x = -16*t*t + 96*t + 112;
+			//-2 2 1 -2 2 1 apophos
+			//double x = Math.sin(0.99*t)-0.7*Math.cos(3.01*t);
+			//double y = Math.cos(1.01*t)+0.1*Math.sin(15.03*t);
+			//-4 4 1 -4 4 1 butterfly/lorentz
+			double r=Math.exp(Math.cos(t))-2*Math.cos(4*t)+Math.pow(Math.sin(t/12),5);
+			double x=r*Math.cos(t);
+			double y=r*Math.sin(t);
+			StdDraw.line(x0,y0,x,y);
+			x0=x;
+			y0=y;
+		}
+	}
+}

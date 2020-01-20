@@ -1,0 +1,38 @@
+//FunctionMode.java	MrG	2013.0521
+public class FunctionMode
+{
+	private double a;
+	private double b;
+	private double c;
+
+	public FunctionMode(double a, double b, double c)
+	{
+		this.a = a;
+		this.b = b;
+		this.c = c;
+	}
+
+	public void axes(double xMin, double xMax, double yMin, double yMax)
+	{
+		StdDraw.setPenRadius(.005);
+		StdDraw.line(0,yMin,0,yMax);
+		StdDraw.line(xMin,0,xMax,0);
+		StdDraw.text(xMax,-1,"x");
+		StdDraw.text(1,yMax,"y");
+	}
+
+	public void plot(double xMin, double xMax)
+	{
+		StdDraw.setPenRadius(.01);
+		StdDraw.setPenColor(StdDraw.GREEN);
+		double x0 = xMin;
+		double y0 = a*xMin*xMin + b*xMin + c;
+		for(double xn=xMin; xn<=xMax; xn+=(xMax-xMin)/100)
+		{
+			double yn = a*xn*xn + b*xn + c;
+			StdDraw.line(x0,y0,xn,yn);
+			x0=xn;
+			y0=yn;
+		}
+	}
+}
